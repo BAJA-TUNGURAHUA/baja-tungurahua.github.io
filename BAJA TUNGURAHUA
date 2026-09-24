@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baja Tungurahua</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0a0a0a;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.95);
+      border-bottom: 1px solid #222;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: #e31b23;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
+        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 100px);
+      line-height: 0.95;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      color: #ddd;
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      text-decoration: none;
+      color: white;
+      border: 1px solid #333;
+      background: #151515;
+      font-weight: 800;
+      text-transform: uppercase;
+      border-radius: 6px;
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #e31b23;
+    }
+
+    .btn.red {
+      background: #e31b23;
+      border-color: #e31b23;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 42px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .section-subtitle {
+      color: #aaa;
+      margin-bottom: 40px;
+      max-width: 800px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #121212;
+      border: 1px solid #262626;
+      border-radius: 10px;
+      padding: 25px;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #e31b23;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .category-button {
+      width: 100%;
+      text-align: left;
+      background: #121212;
+      color: white;
+      border: 1px solid #292929;
+      padding: 18px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: 800;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .category-button:hover {
+      border-color: #e31b23;
+    }
+
+    .category-content {
+      display: none;
+      background: #181818;
+      border-left: 3px solid #e31b23;
+      padding: 20px;
+      margin-bottom: 18px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .category-content img {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .info-box {
+      background: #111;
+      border: 1px solid #252525;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+
+    .sponsors {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      align-items: center;
+    }
+
+    .sponsor-box {
+      background: white;
+      color: black;
+      min-height: 120px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 800;
+    }
+
+    footer {
+      background: #050505;
+      border-top: 1px solid #222;
+      padding: 40px 20px;
+      text-align: center;
+      color: #777;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.93);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .lightbox img {
+      max-width: 95%;
+      max-height: 90vh;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      nav ul {
+        gap: 12px;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+      .hero {
+        min-height: 75vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">BAJA TUNGURAHUA</div>
+
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#categorias">Categorías</a></li>
+      <li><a href="#inscripciones">Inscripciones</a></li>
+      <li><a href="#reglamento">Reglamento</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#resultados">Resultados</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div>
+    <h1>BAJA<br>TUNGURAHUA</h1>
+
+    <p>Motos · Cuadrones · UTV · Todo Terreno</p>
+
+    <div class="hero-buttons">
+      <a class="btn red" href="#inscripciones">Inscripciones</a>
+      <a class="btn" href="#categorias">Ver categorías</a>
+    </div>
+  </div>
+</section>
+
+<section id="categorias">
+  <div class="container">
+    <h2 class="section-title">Categorías</h2>
+    <p class="section-subtitle">
+      Selecciona el tipo de vehículo para conocer las categorías habilitadas.
+    </p>
+
+    <button class="category-button" onclick="toggleCategory('motos')">
+      Motos
+    </button>
+
+    <div class="category-content" id="motos">
+      <h3>Categorías de motos</h3>
+      <p>Open A · Open B · +40 · Mecánica Nacional · Chinas 2V · Doble Propósito 250–300 · Doble Propósito +301</p>
+
+      <!-- Aquí reemplazaremos esta imagen por tu post oficial de motos -->
+      <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80" alt="Categorías motos">
+    </div>
+
+    <button class="category-button" onclick="toggleCategory('cuadrones')">
+      Cuadrones
+    </button>
+
+    <div class="category-content" id="cuadrones">
+      <h3>Categorías de cuadrones</h3>
+      <p>Aquí colocaremos las categorías oficiales de cuadrones.</p>
+
+      <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80" alt="Categorías cuadrones">
+    </div>
+
+    <button class="category-button" onclick="toggleCategory('utv')">
+      UTV
+    </button>
+
+    <div class="category-content" id="utv">
+      <h3>Categorías UTV</h3>
+      <p>UTV Atmosféricos · UTV Turbos</p>
+
+      <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=80" alt="Categorías UTV">
+    </div>
+
+    <button class="category-button" onclick="toggleCategory('todo-terreno')">
+      Todo Terreno
+    </button>
+
+    <div class="category-content" id="todo-terreno">
+      <h3>Categorías Todo Terreno</h3>
+      <p>
+        Aquí se colocarán las categorías oficiales de autos, Vitara y Todo Terreno.
+      </p>
+
+      <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80" alt="Todo terreno">
+    </div>
+
+  </div>
+</section>
+
+<section id="inscripciones">
+  <div class="container">
+    <h2 class="section-title">Inscripciones</h2>
+
+    <div class="info-box">
+      <h3>Inscripción oficial</h3>
+
+      <p style="margin: 15px 0 25px; color:#aaa;">
+        Haz clic en el botón para ingresar directamente a la plataforma oficial de inscripción.
+      </p>
+
+      <!-- REEMPLAZAR # POR EL LINK DE CRONOMETRAJE INSTANTÁNEO -->
+      <a class="btn red" href="#" target="_blank">
+        Inscribirme
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="reglamento">
+  <div class="container">
+    <h2 class="section-title">Reglamento</h2>
+
+    <div class="info-box">
+      <h3>Reglamento oficial</h3>
+
+      <p style="margin: 15px 0 25px; color:#aaa;">
+        Consulta el reglamento oficial de Baja Tungurahua.
+      </p>
+
+      <!-- AQUÍ PODEMOS PONER EL PDF O UN LINK EXTERNO -->
+      <a class="btn" href="#" target="_blank">
+        Ver reglamento
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="eventos">
+  <div class="container">
+    <h2 class="section-title">Eventos</h2>
+
+    <h3 style="margin-bottom:20px;">Eventos anteriores</h3>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Edición anterior</h3>
+        <p>
+          Aquí podremos colocar fecha, ciudad, fotografías y resultados de cada edición.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Edición anterior</h3>
+        <p>
+          Aquí podremos agregar más fechas conforme se realicen nuevos eventos.
+        </p>
+      </div>
+
+    </div>
+
+    <h3 style="margin:50px 0 20px;">Próximas ediciones</h3>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Próxima fecha</h3>
+        <p>
+          Fecha, sede, categorías y apertura de inscripciones.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="resultados">
+  <div class="container">
+    <h2 class="section-title">Resultados</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Resultados oficiales</h3>
+        <p>
+          Aquí podremos colocar enlaces a resultados por categoría y por válida.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Clasificación</h3>
+        <p>
+          Aquí podremos publicar clasificación general y puntuación acumulada.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="container">
+    <h2 class="section-title">Galería</h2>
+
+    <p class="section-subtitle">
+      Fotografías de Baja Tungurahua.
+    </p>
+
+    <div class="gallery">
+
+      <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1000&q=80" onclick="openImage(this.src)" alt="Galería 1">
+
+      <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1000&q=80" onclick="openImage(this.src)" alt="Galería 2">
+
+      <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1000&q=80" onclick="openImage(this.src)" alt="Galería 3">
+
+      <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1000&q=80" onclick="openImage(this.src)" alt="Galería 4">
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Auspiciantes</h2>
+
+    <div class="sponsors">
+      <div class="sponsor-box">AUSPICIANTE 1</div>
+      <div class="sponsor-box">AUSPICIANTE 2</div>
+      <div class="sponsor-box">AUSPICIANTE 3</div>
+      <div class="sponsor-box">AUSPICIANTE 4</div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="container">
+    <h2 class="section-title">Contacto</h2>
+
+    <div class="info-box">
+      <p>
+        Instagram · WhatsApp · Correo
+      </p>
+
+      <div style="margin-top:25px;">
+        <a class="btn red" href="#" target="_blank">
+          Instagram
+        </a>
+
+        <a class="btn" href="#" target="_blank">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Baja Tungurahua</p>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeImage()">
+  <img id="lightboxImage" src="" alt="">
+</div>
+
+<script>
+  function toggleCategory(id) {
+    const element = document.getElementById(id);
+
+    if (element.style.display === "block") {
+      element.style.display = "none";
+    } else {
+      element.style.display = "block";
+    }
+  }
+
+  function openImage(src) {
+    document.getElementById("lightboxImage").src = src;
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  function closeImage() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
