@@ -16,7 +16,7 @@
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #0a0a0a;
-      color: white;
+      color: #ffffff;
       line-height: 1.6;
     }
 
@@ -24,7 +24,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(0,0,0,0.95);
+      background: rgba(0, 0, 0, 0.95);
       border-bottom: 1px solid #222;
     }
 
@@ -39,19 +39,19 @@
 
     .logo {
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 1px;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
     nav a {
-      color: white;
+      color: #ffffff;
       text-decoration: none;
       font-size: 14px;
       font-weight: 700;
@@ -64,19 +64,19 @@
     .hero {
       min-height: 85vh;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
       padding: 40px 20px;
       background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
+        linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.88)),
         url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80');
       background-size: cover;
       background-position: center;
     }
 
     .hero h1 {
-      font-size: clamp(48px, 8vw, 100px);
+      font-size: clamp(48px, 9vw, 105px);
       line-height: 0.95;
       font-weight: 900;
       text-transform: uppercase;
@@ -84,28 +84,28 @@
 
     .hero p {
       margin-top: 20px;
-      color: #ddd;
+      color: #d5d5d5;
       font-size: 18px;
     }
 
     .hero-buttons {
       margin-top: 30px;
       display: flex;
-      justify-content: center;
       gap: 12px;
+      justify-content: center;
       flex-wrap: wrap;
     }
 
     .btn {
       display: inline-block;
       padding: 14px 24px;
-      text-decoration: none;
-      color: white;
-      border: 1px solid #333;
       background: #151515;
+      color: white;
+      text-decoration: none;
+      border: 1px solid #333;
+      border-radius: 6px;
       font-weight: 800;
       text-transform: uppercase;
-      border-radius: 6px;
       transition: 0.25s;
     }
 
@@ -130,14 +130,56 @@
 
     .section-title {
       font-size: 42px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       text-transform: uppercase;
     }
 
     .section-subtitle {
       color: #aaa;
-      margin-bottom: 40px;
-      max-width: 800px;
+      margin-bottom: 35px;
+      max-width: 780px;
+    }
+
+    .category-button {
+      width: 100%;
+      background: #121212;
+      color: white;
+      border: 1px solid #2a2a2a;
+      padding: 18px;
+      margin-bottom: 10px;
+      text-align: left;
+      font-size: 20px;
+      font-weight: 800;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .category-button:hover {
+      border-color: #e31b23;
+    }
+
+    .category-content {
+      display: none;
+      background: #171717;
+      border-left: 3px solid #e31b23;
+      padding: 20px;
+      margin-bottom: 18px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .category-content img {
+      width: 100%;
+      max-width: 720px;
+      margin-top: 15px;
+      border-radius: 8px;
+    }
+
+    .info-box {
+      background: #111;
+      border: 1px solid #252525;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 20px;
     }
 
     .grid {
@@ -160,56 +202,13 @@
     }
 
     .card h3 {
+      font-size: 23px;
       margin-bottom: 10px;
-      font-size: 24px;
       text-transform: uppercase;
     }
 
     .card p {
       color: #aaa;
-      font-size: 14px;
-    }
-
-    .category-button {
-      width: 100%;
-      text-align: left;
-      background: #121212;
-      color: white;
-      border: 1px solid #292929;
-      padding: 18px;
-      margin-bottom: 10px;
-      font-size: 20px;
-      font-weight: 800;
-      cursor: pointer;
-      border-radius: 6px;
-    }
-
-    .category-button:hover {
-      border-color: #e31b23;
-    }
-
-    .category-content {
-      display: none;
-      background: #181818;
-      border-left: 3px solid #e31b23;
-      padding: 20px;
-      margin-bottom: 18px;
-      border-radius: 0 6px 6px 0;
-    }
-
-    .category-content img {
-      width: 100%;
-      max-width: 700px;
-      border-radius: 8px;
-      margin-top: 15px;
-    }
-
-    .info-box {
-      background: #111;
-      border: 1px solid #252525;
-      border-radius: 10px;
-      padding: 30px;
-      margin-bottom: 20px;
     }
 
     .gallery {
@@ -235,18 +234,17 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 20px;
-      align-items: center;
     }
 
     .sponsor-box {
-      background: white;
-      color: black;
+      background: #ffffff;
+      color: #000000;
       min-height: 120px;
       border-radius: 8px;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     footer {
@@ -261,7 +259,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.93);
+      background: rgba(0,0,0,0.94);
       z-index: 2000;
       justify-content: center;
       align-items: center;
@@ -276,13 +274,13 @@
 
     @media (max-width: 800px) {
       nav {
-        align-items: flex-start;
         flex-direction: column;
+        align-items: flex-start;
         gap: 14px;
       }
 
       nav ul {
-        gap: 12px;
+        gap: 10px;
       }
 
       .section-title {
@@ -308,8 +306,8 @@
       <li><a href="#inscripciones">Inscripciones</a></li>
       <li><a href="#reglamento">Reglamento</a></li>
       <li><a href="#eventos">Eventos</a></li>
-      <li><a href="#galeria">Galería</a></li>
       <li><a href="#resultados">Resultados</a></li>
+      <li><a href="#galeria">Galería</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
@@ -331,8 +329,9 @@
 <section id="categorias">
   <div class="container">
     <h2 class="section-title">Categorías</h2>
+
     <p class="section-subtitle">
-      Selecciona el tipo de vehículo para conocer las categorías habilitadas.
+      Selecciona una modalidad para conocer sus categorías.
     </p>
 
     <button class="category-button" onclick="toggleCategory('motos')">
@@ -341,10 +340,15 @@
 
     <div class="category-content" id="motos">
       <h3>Categorías de motos</h3>
-      <p>Open A · Open B · +40 · Mecánica Nacional · Chinas 2V · Doble Propósito 250–300 · Doble Propósito +301</p>
+      <p>
+        Open A · Open B · +40 · Mecánica Nacional · Chinas 2V ·
+        Doble Propósito 250–300 · Doble Propósito +301
+      </p>
 
-      <!-- Aquí reemplazaremos esta imagen por tu post oficial de motos -->
-      <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80" alt="Categorías motos">
+      <img
+        src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80"
+        alt="Categorías motos"
+      >
     </div>
 
     <button class="category-button" onclick="toggleCategory('cuadrones')">
@@ -355,7 +359,10 @@
       <h3>Categorías de cuadrones</h3>
       <p>Aquí colocaremos las categorías oficiales de cuadrones.</p>
 
-      <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80" alt="Categorías cuadrones">
+      <img
+        src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80"
+        alt="Categorías cuadrones"
+      >
     </div>
 
     <button class="category-button" onclick="toggleCategory('utv')">
@@ -366,7 +373,10 @@
       <h3>Categorías UTV</h3>
       <p>UTV Atmosféricos · UTV Turbos</p>
 
-      <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=80" alt="Categorías UTV">
+      <img
+        src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=80"
+        alt="Categorías UTV"
+      >
     </div>
 
     <button class="category-button" onclick="toggleCategory('todo-terreno')">
@@ -376,12 +386,14 @@
     <div class="category-content" id="todo-terreno">
       <h3>Categorías Todo Terreno</h3>
       <p>
-        Aquí se colocarán las categorías oficiales de autos, Vitara y Todo Terreno.
+        Aquí colocaremos las categorías oficiales de autos, Vitara y Todo Terreno.
       </p>
 
-      <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80" alt="Todo terreno">
+      <img
+        src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80"
+        alt="Todo Terreno"
+      >
     </div>
-
   </div>
 </section>
 
@@ -392,11 +404,10 @@
     <div class="info-box">
       <h3>Inscripción oficial</h3>
 
-      <p style="margin: 15px 0 25px; color:#aaa;">
-        Haz clic en el botón para ingresar directamente a la plataforma oficial de inscripción.
+      <p style="margin: 15px 0 25px; color: #aaa;">
+        Ingresa a la plataforma oficial de inscripción.
       </p>
 
-      <!-- REEMPLAZAR # POR EL LINK DE CRONOMETRAJE INSTANTÁNEO -->
       <a class="btn red" href="#" target="_blank">
         Inscribirme
       </a>
@@ -411,11 +422,10 @@
     <div class="info-box">
       <h3>Reglamento oficial</h3>
 
-      <p style="margin: 15px 0 25px; color:#aaa;">
-        Consulta el reglamento oficial de Baja Tungurahua.
+      <p style="margin: 15px 0 25px; color: #aaa;">
+        Consulta o descarga el reglamento oficial.
       </p>
 
-      <!-- AQUÍ PODEMOS PONER EL PDF O UN LINK EXTERNO -->
       <a class="btn" href="#" target="_blank">
         Ver reglamento
       </a>
@@ -427,39 +437,34 @@
   <div class="container">
     <h2 class="section-title">Eventos</h2>
 
-    <h3 style="margin-bottom:20px;">Eventos anteriores</h3>
+    <h3 style="margin-bottom: 20px;">Eventos anteriores</h3>
 
     <div class="grid">
-
       <div class="card">
         <h3>Edición anterior</h3>
         <p>
-          Aquí podremos colocar fecha, ciudad, fotografías y resultados de cada edición.
+          Aquí podremos colocar fotografías, sede, fecha y resultados.
         </p>
       </div>
 
       <div class="card">
         <h3>Edición anterior</h3>
         <p>
-          Aquí podremos agregar más fechas conforme se realicen nuevos eventos.
+          Se podrán agregar todas las ediciones anteriores de Baja Tungurahua.
         </p>
       </div>
-
     </div>
 
-    <h3 style="margin:50px 0 20px;">Próximas ediciones</h3>
+    <h3 style="margin: 50px 0 20px;">Próximas ediciones</h3>
 
     <div class="grid">
-
       <div class="card">
         <h3>Próxima fecha</h3>
         <p>
-          Fecha, sede, categorías y apertura de inscripciones.
+          Aquí mostraremos fecha, sede, categorías e inscripciones.
         </p>
       </div>
-
     </div>
-
   </div>
 </section>
 
@@ -468,21 +473,19 @@
     <h2 class="section-title">Resultados</h2>
 
     <div class="grid">
-
       <div class="card">
         <h3>Resultados oficiales</h3>
         <p>
-          Aquí podremos colocar enlaces a resultados por categoría y por válida.
+          Aquí podremos colocar enlaces a los resultados de cada categoría.
         </p>
       </div>
 
       <div class="card">
-        <h3>Clasificación</h3>
+        <h3>Clasificación general</h3>
         <p>
-          Aquí podremos publicar clasificación general y puntuación acumulada.
+          Aquí podremos publicar puntuación acumulada y posiciones generales.
         </p>
       </div>
-
     </div>
   </div>
 </section>
@@ -492,24 +495,40 @@
     <h2 class="section-title">Galería</h2>
 
     <p class="section-subtitle">
-      Fotografías de Baja Tungurahua.
+      Fotografías de las diferentes ediciones de Baja Tungurahua.
     </p>
 
     <div class="gallery">
 
-      <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1000&q=80" onclick="openImage(this.src)" alt="Galería 1">
+      <img
+        src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1000&q=80"
+        onclick="openImage(this.src)"
+        alt="Galería 1"
+      >
 
-      <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1000&q=80" onclick="openImage(this.src)" alt="Galería 2">
+      <img
+        src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1000&q=80"
+        onclick="openImage(this.src)"
+        alt="Galería 2"
+      >
 
-      <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1000&q=80" onclick="openImage(this.src)" alt="Galería 3">
+      <img
+        src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1000&q=80"
+        onclick="openImage(this.src)"
+        alt="Galería 3"
+      >
 
-      <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1000&q=80" onclick="openImage(this.src)" alt="Galería 4">
+      <img
+        src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1000&q=80"
+        onclick="openImage(this.src)"
+        alt="Galería 4"
+      >
 
     </div>
   </div>
 </section>
 
-<section>
+<section id="auspiciantes">
   <div class="container">
     <h2 class="section-title">Auspiciantes</h2>
 
@@ -527,11 +546,9 @@
     <h2 class="section-title">Contacto</h2>
 
     <div class="info-box">
-      <p>
-        Instagram · WhatsApp · Correo
-      </p>
+      <p>Instagram · WhatsApp · Correo</p>
 
-      <div style="margin-top:25px;">
+      <div style="margin-top: 25px;">
         <a class="btn red" href="#" target="_blank">
           Instagram
         </a>
